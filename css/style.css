@@ -2,15 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 :root {
     --primary-color: #003366;
-    --secondary-color: #FFD700;
-    --tertiary-color: #FFD700;
-    --quaternary-color: #003366;
-    --quinary-color: #FFD700;
-    --senary-color: #003366;
-    --septenary-color: #FFD700;
-    --octonary-color: #003366;
-    --nonary-color: #FFD700;
-    --denary-color: #003366;
+    --secondary-color: #FFD700
 }
 body {
     color: black;
@@ -19,7 +11,7 @@ body {
     margin: 0;
     padding:2px;
     background-color:#003366;
-    transition: background 0.5s ease;
+    transition: all 0.5s ease;
 }
 h1{
     font-size:clamp(2rem, 5vw, 3rem);
@@ -81,7 +73,7 @@ h2{
 }
 .nav a {
     font-weight: bold;
-    padding:0.8rem 2rem;
+    padding:0.5rem 1rem;
     text-decoration:none;
     font-size:12px;
     color:#FFD700;
@@ -98,12 +90,13 @@ h2{
 
 
 .navIn:hover{
-    border-top: 1px solid #003366;
+    
     border-radius: 20px;
     background:linear-gradient(to bottom,#FFD700,#003366,#FFD700);
     transition:all 200ms ease;
     box-shadow:-3px 0px 3px #003366;
-    color:#003366;     
+    color:#003366; 
+    transform: scale(1.1);    
 
 }
 .icon-container {
@@ -113,6 +106,16 @@ h2{
     justify-content: flex-end;
     margin-left: auto; /* Pousse le bloc à droite */
     padding-right: 10px;
+}
+#icon-containerleft {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Ajoute un espace entre "Nos services" et les icônes */
+    justify-content: flex-start;
+    margin-left: auto; /* Pousse le bloc à droite */
+    padding-right: 10px;
+    margin-left:0px ;
+
 }
 
 #Service {
@@ -141,12 +144,21 @@ h2{
 }
 
 .main {
+    display:grid;
+    grid-template-areas: 'section1'
+                          'section2'
+                          'section3'
+                          'section4'
+                          'section5'
+                          'section6';
+    grid-gap: 10px;
     grid-area: main;
     color: #003366;
     padding: 15px;
 }
 
 .section {
+    grid-area: section;
     color:#003366;
     padding: 20px;
     margin: 15px 0;
@@ -154,6 +166,30 @@ h2{
     border-top:4px groove #003366;
     border-radius:20px;
     background-color:#FFD700;       
+}
+.section1{
+    grid-area: section1;
+       
+}
+.section2{
+    grid-area: section2;
+       
+}
+.section3{
+    grid-area: section3;
+       
+}
+.section4{
+    grid-area: section4;
+       
+}
+.section5{
+    grid-area: section5;
+       
+}
+.section6{
+    grid-area: section6;
+       
 }
 
 .footer {
@@ -194,9 +230,13 @@ img {
     display:none;
     background: none;
     border: none;
-    padding:1rem;
+    padding-top:0.5rem;
     margin-left:auto;
     cursor:pointer;
+}
+#closeSideBarButton:hover,#openSideBarButton:hover{
+    transition:all 200ms ease;
+    transform: scale(1.3); 
 }
 #closeSideBarButton{
     display:none;
@@ -224,7 +264,7 @@ img {
     .container {
       grid-template-areas:
         "header"
-        "nav"
+        "barResponsive"
         "main"
         "footer";
 
@@ -234,6 +274,7 @@ img {
         flex-direction: column;
         align-items: center;
         flex-wrap: wrap;
+        border-bottom: 1px solid #FFD700;
     }
     .nav ul {
       display: flex;
@@ -254,6 +295,7 @@ img {
         top : 0px;
         right:-100%;
         transition:right 300ms ease-out;
+        
     }
     .nav.show{
         right:0;
@@ -270,6 +312,42 @@ img {
     }
     .nav .icon-container{
         display:none;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .barResponsive{
+        position: sticky;
+        z-index: 1000;
+        top: 0;
+        grid-area: barResponsive;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding-left: 0px;
+        width:auto;
+        background-color:#003366;
+        border-radius:10px;
+        border:3px groove #FFD700;
+        min-height: 15px;
+        box-sizing: border-box;
+        margin:15px
+    }
+    #Service {
+        border: 1px solid #FFD700;
+        padding: 1px 5px;
+        border-radius: 5px;
+    }
+    
+    #Service a {
+        text-decoration: none;
+        color: #FFD700;
+        font-weight: bold;
     }
   }
   

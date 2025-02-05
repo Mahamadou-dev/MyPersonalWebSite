@@ -1,4 +1,17 @@
 /* CSS for the second style */
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+:root {
+    --primary-color: #003366;
+    --secondary-color: #FFD700;
+    --tertiary-color: #FFD700;
+    --quaternary-color: #003366;
+    --quinary-color: #FFD700;
+    --senary-color: #003366;
+    --septenary-color: #FFD700;
+    --octonary-color: #003366;
+    --nonary-color: #FFD700;
+    --denary-color: #003366;
+}
 body {
     color: black;
     font-family:"Century Gothic", Arial, sans-serif;
@@ -6,9 +19,10 @@ body {
     margin: 0;
     padding:2px;
     background-color:#003366;
+    transition: background 0.5s ease;
 }
 h1{
-    font-size:40px;
+    font-size:clamp(2rem, 5vw, 3rem);
     text-align:center;
     font-weight:normal;
     font-family: "Sofia";    
@@ -34,9 +48,6 @@ h2{
 .header {
     grid-area: header;
     padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     background-color:#003366;
     border-top:5px groove #FFD700;
     border-radius:100px;
@@ -46,60 +57,99 @@ h2{
 
 
 .nav {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
     grid-area: nav;
-    padding: 10px;
-    margin :20px;
+    margin : 15px ;
     width:auto;
-    background-color:white;
+    background-color:#003366;
     border-radius:10px;
-    border-top:5px groove #FFD700;
+    border:3px groove #FFD700;
     min-height: 30px;
+    box-sizing: border-box;
+    
 }
 
 .nav ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+    display:flex;
+    align-items: center;
+}
+.nav .icon-container{
+    margin-left: 1px;
+}
+.nav a {
+    font-weight: bold;
+    padding:0.8rem 2rem;
+    text-decoration:none;
+    font-size:12px;
+    color:#FFD700;
+    text-transform:uppercase;
+    display:flex;
+    transition: background-color 150ms ease;
+   
 }
 
 .nav li {
-    display: inline-block;
-    margin: 0 15px;
+    display: flex;
 }
 
-.nav a {
-    font-weight: bold;
-    padding:10px 10px;
-    text-decoration:none;
-    font-size:16px;
-    color:black;
-    text-transform:uppercase;
-    
-   
-}
+
+
 .navIn:hover{
-    border-bottom: 4px groove #003366;
-    border-radius: 10px;
-    /*background:linear-gradient(to bottom,#FFD700,#003366);*/
-    padding:5px;
-    transition:all 1s;
-    box-shadow:-3px -3px 3px #003366;
-    color:#003366;  
-    text-decoration: underline;
+    border-top: 1px solid #003366;
+    border-radius: 20px;
+    background:linear-gradient(to bottom,#FFD700,#003366,#FFD700);
+    transition:all 200ms ease;
+    box-shadow:-3px 0px 3px #003366;
+    color:#003366;     
 
+}
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Ajoute un espace entre "Nos services" et les icônes */
+    justify-content: flex-end;
+    margin-left: auto; /* Pousse le bloc à droite */
+    padding-right: 10px;
+}
+
+#Service {
+    border: 1px solid #FFD700;
+    padding: px 10px;
+    border-radius: 5px;
+}
+
+#Service a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #ffcc00;
+    transform: scale(1.2);
 }
 
 .main {
     grid-area: main;
     color: #003366;
-    padding: 20px;
+    padding: 15px;
 }
 
 .section {
     color:#003366;
     padding: 20px;
-    margin: 20px 0;
+    margin: 15px 0;
     border-radius: 10px;
     border-top:4px groove #003366;
     border-radius:20px;
@@ -140,8 +190,37 @@ img {
 .espace{
     width:25%;
 }
+#openSideBarButton{
+    display:none;
+    background: none;
+    border: none;
+    padding:1rem;
+    margin-left:auto;
+    cursor:pointer;
+}
+#closeSideBarButton{
+    display:none;
+    background: none;
+    border: none;
+    padding:1rem;
+    margin-left:auto;
+    cursor:pointer;
+}
+#overlay{
+    background: rgba(30, 28, 15, 0.63);
+    position:fixed;
+    inset:0;
+    z-index:9;
+    display:none;
+}
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+    #openSideBarButton,#closeSideBarButton{
+        display:block;
+    }
+    .nav.show~#overlay{
+        display:block;
+    }
     .container {
       grid-template-areas:
         "header"
@@ -159,13 +238,38 @@ img {
     .nav ul {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      /*align-items: center;*/
+      align-items: baseline;
       flex-wrap: wrap;
-      
+      width:100%;
 
     }
     img{
         width: 700px;
+    }
+    .nav{
+        position: fixed;
+        height:100vh;
+        width:min(15em,100%);
+        top : 0px;
+        right:-100%;
+        transition:right 300ms ease-out;
+    }
+    .nav.show{
+        right:0;
+        transition: right 0.5s ease;
+    }
+    .nav a{
+        width:100%;
+        padding-left:2.5em;
+    }
+    .nav a.active{
+        background-color:#FFD700;
+        color:#003366;
+        border-bottom: none;
+    }
+    .nav .icon-container{
+        display:none;
     }
   }
   

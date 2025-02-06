@@ -1,8 +1,9 @@
 /* CSS for the second style */
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 :root {
-    --primary-color: #003366;
-    --secondary-color: #FFD700
+    --bleu: #036;
+    --jaune:#ffd700;
+    --jaune-claire:#ffcc007f;
 }
 body {
     color: black;
@@ -10,14 +11,14 @@ body {
     text-align: center;
     margin: 0;
     padding:2px;
-    background-color:#003366;
+    background-color:var(--bleu);
     transition: all 0.5s ease;
 }
 h1{
     font-size:clamp(2rem, 5vw, 3rem);
     text-align:center;
     font-weight:normal;
-    font-family: "Sofia";    
+    font-family:"Sofia";    
         
 }
 h2{
@@ -40,10 +41,10 @@ h2{
 .header {
     grid-area: header;
     padding: 10px;
-    background-color:#003366;
-    border-top:5px groove #FFD700;
+    background-color:var(--bleu);
+    border-top:5px groove var(--jaune);
     border-radius:100px;
-    color:#FFD700;
+    color:var(--jaune);
 
 }
 
@@ -55,9 +56,9 @@ h2{
     grid-area: nav;
     margin : 15px ;
     width:auto;
-    background-color:#003366;
+    background-color:var(--bleu);
     border-radius:10px;
-    border:3px groove #FFD700;
+    border:3px groove var(--jaune);
     min-height: 30px;
     box-sizing: border-box;
     
@@ -65,18 +66,27 @@ h2{
 
 .nav ul {
     list-style-type: none;
-    display:flex;
+    display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: center; /* Centre les liens */
+    padding: 0;
+    position: relative;
 }
+
+.nav li:first-child {
+    flex-grow: 1; /* Crée un espace vide à gauche */
+}
+
 .nav .icon-container{
     margin-left: 1px;
 }
 .nav a {
+     font-size: clamp(12px, 1.1vw, 14px); 
     font-weight: bold;
     padding:0.5rem 1rem;
     text-decoration:none;
-    font-size:12px;
-    color:#FFD700;
+    color:var(--jaune);
     text-transform:uppercase;
     display:flex;
     transition: background-color 150ms ease;
@@ -92,21 +102,26 @@ h2{
 .navIn:hover{
     
     border-radius: 20px;
-    background:linear-gradient(to bottom,#FFD700,#003366,#FFD700);
+    background:linear-gradient(to bottom,var(--jaune),var(--bleu),var(--jaune));
     transition:all 200ms ease;
-    box-shadow:-3px 0px 3px #003366;
-    color:#003366; 
+    box-shadow:-3px 0px 3px var(--bleu);
+    color:var(--bleu); 
     transform: scale(1.1);    
 
 }
+.spacer {
+    flex-grow: 0.6; /* Crée un espace vide pour équilibrer les liens */
+}
+
 .icon-container {
+    margin-left: auto; /* Pousse à droite */
     display: flex;
     align-items: center;
-    gap: 15px; /* Ajoute un espace entre "Nos services" et les icônes */
-    justify-content: flex-end;
-    margin-left: auto; /* Pousse le bloc à droite */
+    gap: 15px;
     padding-right: 10px;
+  
 }
+
 #icon-containerleft {
     display: flex;
     align-items: center;
@@ -116,17 +131,18 @@ h2{
     padding-right: 10px;
     margin-left:0px ;
 
+
 }
 
 #Service {
-    border: 1px solid #FFD700;
+    border: 1px solid var(--jaune);
     padding: px 10px;
     border-radius: 5px;
 }
 
 #Service a {
     text-decoration: none;
-    color: #FFD700;
+    color: var(--jaune);
     font-weight: bold;
 }
 
@@ -151,22 +167,36 @@ h2{
                           'section4'
                           'section5'
                           'section6';
-    grid-gap: 10px;
+    grid-gap: 50px;
     grid-area: main;
-    color: #003366;
+    color: var(--bleu);
     padding: 15px;
 }
 
 .section {
     grid-area: section;
-    color:#003366;
+    color:var(--bleu);
     padding: 20px;
     margin: 15px 0;
     border-radius: 10px;
-    border-top:4px groove #003366;
+    border-top:4px groove var(--bleu);
     border-radius:20px;
-    background-color:#FFD700;       
+    background-color:var(--jaune); 
+    animation: hombre  5s ease 2s infinite alternate ;
+    box-shadow: 0px 0px  0px var(--jaune);     
 }
+@keyframes hombre {
+    0% {
+        box-shadow: 0px 0px  1px var(--jaune-claire); 
+    }
+    50% {
+        box-shadow: 0px 0px  15px var(--jaune-claire); 
+    }
+    100% {
+        box-shadow: 0px 0px  30px var(--jaune-claire); 
+    }
+}
+
 .section1{
     grid-area: section1;
        
@@ -198,11 +228,11 @@ h2{
     height:auto;
     text-align:center;
     background-color:white;
-    border-top: 5px groove #FFD700; 
+    border-top: 5px groove var(--jaune); 
     border-radius:10px;
     border-bottom-left-radius:100px;
     border-bottom-right-radius:100px;
-    color:#003366;
+    color:var(--bleu);
     font-weight:900;
 
 }
@@ -274,7 +304,7 @@ img {
         flex-direction: column;
         align-items: center;
         flex-wrap: wrap;
-        border-bottom: 1px solid #FFD700;
+        border-bottom: 1px solid var(--jaune);
     }
     .nav ul {
       display: flex;
@@ -306,8 +336,8 @@ img {
         padding-left:2.5em;
     }
     .nav a.active{
-        background-color:#FFD700;
-        color:#003366;
+        background-color:var(--jaune);
+        color:var(--bleu);
         border-bottom: none;
     }
     .nav .icon-container{
@@ -331,22 +361,22 @@ img {
         justify-content: flex-start;
         padding-left: 0px;
         width:auto;
-        background-color:#003366;
+        background-color:var(--bleu);
         border-radius:10px;
-        border:3px groove #FFD700;
+        border:3px groove var(--jaune);
         min-height: 15px;
         box-sizing: border-box;
         margin:15px
     }
     #Service {
-        border: 1px solid #FFD700;
+        border: 1px solid var(--jaune);
         padding: 1px 5px;
         border-radius: 5px;
     }
     
     #Service a {
         text-decoration: none;
-        color: #FFD700;
+        color: var(--jaune);
         font-weight: bold;
     }
   }

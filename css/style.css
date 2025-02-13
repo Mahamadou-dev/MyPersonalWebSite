@@ -4,6 +4,7 @@
     --couleur1: #036;
     --couleur2:#ffd700;
     --couleur3:#ffcc007f;
+    
    
 }
 body {
@@ -160,7 +161,7 @@ h2{
 }
 
 .icon:hover {
-    color: var(--couleur1);
+    color: var(--couleur3);
     transform: scale(1.2);
 }
 

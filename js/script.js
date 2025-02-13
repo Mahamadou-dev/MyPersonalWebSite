@@ -11,9 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let themeIndex = 0;
 
   const themes = [
-      { "--couleur1": "#036", "--couleur2": "#ffd700", "--couleur3": "#ffcc007f" }, // Mode jaune (défaut)
-      { "--couleur1": "#edf9ffe9", "--couleur2": "#07090ad8", "--couleur3": "rgba(99, 103, 105, 0.748)" }, // Mode jour (1')
-      { "--couleur1": "#07090ad8", "--couleur2": "#edf9ffe9", "--couleur3": "rgba(99, 103, 105, 0.748)" }  // Mode nuit (1'')
+      { "--couleur1": "#036", "--couleur2": "#ffd700", "--couleur3": "#ffcc007f" },
+      { "--couleur1": "#ffd700", "--couleur2": "#036", "--couleur3": "#ffcc007f" },  // Mode jaune (défaut)
+      { "--couleur1": "#fff", "--couleur2": "#010101e6", "--couleur3": "rgba(99, 103, 105, 0.748)" }, // Mode jour (1')
+      { "--couleur1": "#010101e6", "--couleur2": "#fff", "--couleur3": "rgba(99, 103, 105, 0.748)" },
+      { "--couleur1": "red", "--couleur2": "#010101e6", "--couleur3" : "rgba(152, 22, 22, 0.75)"   },
+      { "--couleur1": "#010101e6", "--couleur2": "red", "--couleur3" : "rgba(152, 22, 22, 0.75)"   }, 
+      { "--couleur1": "rgb(0, 213, 255)", "--couleur2": "#fff", "--couleur3" : "rgba(0, 213, 255, 0.5)"},
+      { "--couleur1": "rgb(0, 213, 255)", "--couleur2": "#010101e6", "--couleur3" : "rgba(0, 213, 255, 0.5)"} // Mode nuit (1'')
   ];
 
   themeToggles.forEach(toggle => { // Pour chaque élément avec id "theme-toggle"

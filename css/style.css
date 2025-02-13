@@ -1,9 +1,10 @@
 /* CSS for the second style */
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 :root {
-    --bleu: #036;
-    --jaune:#ffd700;
-    --jaune-claire:#ffcc007f;
+    --couleur1: #036;
+    --couleur2:#ffd700;
+    --couleur3:#ffcc007f;
+   
 }
 body {
     color: black;
@@ -11,7 +12,7 @@ body {
     text-align: center;
     margin: 0;
     padding:2px;
-    background-color:var(--bleu);
+    background-color:var(--couleur1);
     transition: all 0.5s ease;
 }
 h1{
@@ -41,10 +42,11 @@ h2{
 .header {
     grid-area: header;
     padding: 10px;
-    background-color:var(--bleu);
-    border-top:5px groove var(--jaune);
+    display:flex;
+    background-color:var(--couleur1);
+    border-top:5px groove var(--couleur2);
     border-radius:100px;
-    color:var(--jaune);
+    color:var(--couleur2);
 
 }
 
@@ -56,12 +58,15 @@ h2{
     grid-area: nav;
     margin : 15px ;
     width:auto;
-    background-color:var(--bleu);
+    background-color:var(--couleur1);
     border-radius:10px;
-    border:3px groove var(--jaune);
+    border:3px groove var(--couleur2);
     min-height: 30px;
     box-sizing: border-box;
     
+}
+.barResponsive{
+    display:none;
 }
 
 .nav ul {
@@ -86,7 +91,7 @@ h2{
     font-weight: bold;
     padding:0.5rem 1rem;
     text-decoration:none;
-    color:var(--jaune);
+    color:var(--couleur2);
     text-transform:uppercase;
     display:flex;
     transition: background-color 150ms ease;
@@ -102,10 +107,10 @@ h2{
 .navIn:hover{
     
     border-radius: 20px;
-    background:linear-gradient(to bottom,var(--jaune),var(--bleu),var(--jaune));
+    background:linear-gradient(to bottom,var(--couleur2),var(--couleur1),var(--couleur2));
     transition:all 200ms ease;
-    box-shadow:-3px 0px 3px var(--bleu);
-    color:var(--bleu); 
+    box-shadow:-3px 0px 3px var(--couleur1);
+    color:var(--couleur1); 
     transform: scale(1.1);    
 
 }
@@ -135,27 +140,27 @@ h2{
 }
 
 #Service {
-    border: 1px solid var(--jaune);
+    border: 1px solid var(--couleur2);
     padding: px 10px;
     border-radius: 5px;
 }
 
 #Service a {
     text-decoration: none;
-    color: var(--jaune);
+    color: var(--couleur2);
     font-weight: bold;
 }
 
 .icon {
     width: 24px;
     height: 24px;
-    color: white;
+    color: var(--couleur2);
     transition: color 0.3s ease-in-out, transform 0.2s;
     cursor: pointer;
 }
 
 .icon:hover {
-    color: #ffcc00;
+    color: var(--couleur1);
     transform: scale(1.2);
 }
 
@@ -169,31 +174,31 @@ h2{
                           'section6';
     grid-gap: 50px;
     grid-area: main;
-    color: var(--bleu);
+    color: var(--couleur1);
     padding: 15px;
 }
 
 .section {
     grid-area: section;
-    color:var(--bleu);
+    color:var(--couleur1);
     padding: 20px;
     margin: 15px 0;
     border-radius: 10px;
-    border-top:4px groove var(--bleu);
+    border-top:4px groove var(--couleur1);
     border-radius:20px;
-    background-color:var(--jaune); 
+    background-color:var(--couleur2); 
     animation: hombre  5s ease 2s infinite alternate ;
-    box-shadow: 0px 0px  0px var(--jaune);     
+    box-shadow: 0px 0px  0px var(--couleur2);     
 }
 @keyframes hombre {
     0% {
-        box-shadow: 0px 0px  1px var(--jaune-claire); 
+        box-shadow: 0px 0px  0px var(--couleur3); 
     }
     50% {
-        box-shadow: 0px 0px  15px var(--jaune-claire); 
+        box-shadow: 0px 0px  15px var(--couleur3); 
     }
     100% {
-        box-shadow: 0px 0px  30px var(--jaune-claire); 
+        box-shadow: 0px 0px  30px var(--couleur3); 
     }
 }
 
@@ -228,11 +233,11 @@ h2{
     height:auto;
     text-align:center;
     background-color:white;
-    border-top: 5px groove var(--jaune); 
+    border-top: 5px groove var(--couleur2); 
     border-radius:10px;
     border-bottom-left-radius:100px;
     border-bottom-right-radius:100px;
-    color:var(--bleu);
+    color:var(--couleur1);
     font-weight:900;
 
 }
@@ -253,6 +258,7 @@ img {
     height: auto;
     border-radius: 50%;
 }
+
 .espace{
     width:25%;
 }
@@ -304,7 +310,7 @@ img {
         flex-direction: column;
         align-items: center;
         flex-wrap: wrap;
-        border-bottom: 1px solid var(--jaune);
+        border-bottom: 1px solid var(--couleur2);
     }
     .nav ul {
       display: flex;
@@ -325,6 +331,7 @@ img {
         top : 0px;
         right:-100%;
         transition:right 300ms ease-out;
+        padding-left:10px;
         
     }
     .nav.show{
@@ -334,10 +341,11 @@ img {
     .nav a{
         width:100%;
         padding-left:2.5em;
+        overflow: hidden;
     }
     .nav a.active{
-        background-color:var(--jaune);
-        color:var(--bleu);
+        background-color:var(--couleur2);
+        color:var(--couleur1);
         border-bottom: none;
     }
     .nav .icon-container{
@@ -361,22 +369,22 @@ img {
         justify-content: flex-start;
         padding-left: 0px;
         width:auto;
-        background-color:var(--bleu);
+        background-color:var(--couleur1);
         border-radius:10px;
-        border:3px groove var(--jaune);
+        border:3px groove var(--couleur2);
         min-height: 15px;
         box-sizing: border-box;
         margin:15px
     }
     #Service {
-        border: 1px solid var(--jaune);
+        border: 1px solid var(--couleur2);
         padding: 1px 5px;
         border-radius: 5px;
     }
     
     #Service a {
         text-decoration: none;
-        color: var(--jaune);
+        color: var(--couleur2);
         font-weight: bold;
     }
   }
